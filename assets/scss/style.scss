@@ -3,20 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700;800;900&display=swap');
 // ========================================================== / fonts
 // ---------------------------------------------------------- mixins
-@mixin bg_logo () {
-    &::before {
-        content: "ventas";
-        position: absolute;
-        left: 60%;
-        font-family: 'Montserrat';
-        font-weight: 900;
-        font-size: 350px;
-        line-height: 137.4%;
-        /* identical to box height, or 481px */
-        letter-spacing: 0.135em;
-        color: #fff;
-        text-shadow: rgba(35, 80, 134, 0.2) 0 0 2px;
-    }
+@mixin figure_cylinder ($height: 100px) {
+    height: $height;
+    width: 54px;
+    border: 1px solid rgba($color: #fff, $alpha: 0.2);
+    border-radius: 27px;
+}
+
+@mixin figure_circle {
+    height: 54px;
+    width: 54px;
+    border: 1px solid rgba($color: #fff, $alpha: 0.2);
+    border-radius: 50%;
 }
 
 // ========================================================== / mixins
@@ -83,13 +81,46 @@ $screen_xl: 1200px;
         font-weight: 900;
         font-size: 35px;
         line-height: 137.4%;
-        /* identical to box height, or 48px */
         color: #FFFFFF;
+    }
+    .bg_logo {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(35, 80, 134, 0.2);
+        font-weight: 900;
+        font-size: 350px;
+        line-height: 1;
+        letter-spacing: 0.135em;
+    }
+    .section_title {
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 137.4%;
+        /* or 84px */
+        text-transform: uppercase;
+        color: #000000;
+        // max-width: 33.3%;
+        position: relative;
+        z-index: 3;
+        span {
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            height: 84px;
+            width: 300%;
+            background-color: #235086;
+        }
     }
 }
 
 section {
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     overflow-x: hidden;
 }
 
@@ -100,7 +131,7 @@ section {
     z-index: 100;
     width: 100%;
     height: 96px;
-    transition: .3s;
+    // transition: .3s;
     &::before {
         content: "";
         position: absolute;
@@ -109,7 +140,7 @@ section {
         width: 100%;
         height: 0%;
         background-color: rgba($color: #1D1B1B, $alpha: .6);
-        transition: .3s;
+        transition: .6s;
     }
     &.active {
         &::before {
@@ -117,8 +148,10 @@ section {
         }
     }
     .nav_link {
+        position: relative;
         display: inline-block;
         padding: 57px 16px 16px;
+        z-index: 100;
         transition: .5s;
         &.active {
             background-color: #235086;
@@ -164,9 +197,281 @@ section {
 // === / intro
 // --- promo
 .section_promo {
+    padding-top: 140px;
     position: relative;
-    height: 700px;
-    @include bg_logo();
+    .bg_logo {
+        position: absolute;
+        left: 60%;
+        top: 0%;
+    }
+    .promo_text {
+        font-size: 36px;
+        line-height: 137.4%;
+    }
+    .promo_card {
+        margin-top: 75px;
+        padding: 50px 40px;
+        height: 100%;
+        position: relative;
+        .card_num {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 153.4%;
+            color: rgba($color: #fff, $alpha: 0.2);
+        }
+        .card_title {
+            font-weight: 500;
+            font-size: 34px;
+            line-height: 137.4%;
+            /* identical to box height, or 47px */
+            color: #FFFFFF;
+        }
+        .card_description {
+            position: relative;
+            z-index: 3;
+            margin-top: 25px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 152.9%;
+            /* or 28px */
+            color: #FFFFFF;
+        }
+        .some_text {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 153.4%;
+            /* or 18px */
+            color: #235086;
+        }
+        &__1 {
+            .card_description {
+                max-width: 288px;
+            }
+            .some_text {
+                position: absolute;
+                left: 89px;
+                bottom: 55px;
+            }
+            .figure_1 {
+                position: absolute;
+                left: 68px;
+                bottom: -65px;
+                @include figure_cylinder(187px);
+                transform: rotate(90deg);
+            }
+            .figure_2 {
+                position: absolute;
+                left: 189px;
+                bottom: 1px;
+                @include figure_cylinder();
+            }
+            .figure_3 {
+                position: absolute;
+                right: 1px;
+                bottom: 55px;
+                @include figure_cylinder();
+            }
+            .figure_4 {
+                position: absolute;
+                left: 243px;
+                bottom: 1px;
+                @include figure_circle();
+            }
+            .figure_5 {
+                position: absolute;
+                right: 1px;
+                bottom: 242px;
+                @include figure_circle();
+            }
+        }
+        &__2 {
+            overflow: hidden;
+            .line_1 {
+                position: absolute;
+                left: 28px;
+                top: 239px;
+                height: 44%;
+                width: 1px;
+                background-color: #FFFFFF;
+                transform: rotate(-20deg);
+            }
+            .line_2 {
+                position: absolute;
+                right: 129px;
+                bottom: -44px;
+                height: 147%;
+                width: 1px;
+                background-color: #FFFFFF;
+                transform: rotate(27deg);
+            }
+            .line_3 {
+                position: absolute;
+                right: 53px;
+                bottom: -44px;
+                height: 147%;
+                width: 1px;
+                background-color: #FFFFFF;
+                transform: rotate(-27deg);
+            }
+            .some_bg_text {
+                position: absolute;
+                right: 5px;
+                font-weight: 900;
+                bottom: 5px;
+                font-size: 42px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: transparent;
+                -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            }
+        }
+        &__3 {
+            .card_description {
+                max-width: 288px;
+            }
+            .some_text__1 {
+                position: absolute;
+                left: 37px;
+                bottom: 18px;
+            }
+            .some_text__2 {
+                position: absolute;
+                transform: rotate(-90deg);
+                right: -7px;
+                bottom: 118px;
+            }
+            .figure_1 {
+                position: absolute;
+                right: 244px;
+                bottom: 1px;
+                @include figure_circle();
+            }
+            .figure_2 {
+                position: absolute;
+                right: 189px;
+                bottom: 1px;
+                @include figure_cylinder();
+            }
+            .figure_3 {
+                position: absolute;
+                right: 68px;
+                bottom: -65px;
+                @include figure_cylinder(187px);
+                transform: rotate(90deg);
+            }
+            .figure_4 {
+                position: absolute;
+                right: 1px;
+                bottom: 196px;
+                @include figure_circle();
+            }
+            .figure_5 {
+                position: absolute;
+                right: 67px;
+                bottom: 254px;
+                @include figure_circle();
+            }
+        }
+    }
 }
 
 // === / promo
+// --- stages
+.section_stages {
+    position: relative;
+    overflow-y: visible;
+    .bg_logo-1 {
+        position: absolute;
+        left: 40%;
+        top: -63px;
+    }
+    .bg_logo-2 {
+        position: absolute;
+        left: -37%;
+        top: 860px;
+    }
+    .section_title {
+        margin-bottom: 75px;
+    }
+    .stages_image-1 {
+        img {
+            width: 100%;
+        }
+    }
+    .stages_list {
+        margin-bottom: 150px;
+        .list_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3F3F3F;
+            .item_num {
+                font-weight: 900;
+                font-size: 20px;
+                line-height: 137.4%;
+                /* or 27px */
+                color: #C4C4C4;
+            }
+            .item_title {
+                width: 60%;
+                text-align: right;
+            }
+        }
+    }
+    .stages_image-2 {
+        position: absolute;
+        right: 0;
+        z-index: 3;
+        img {
+            width: 100%;
+        }
+    }
+    .color_card {
+        position: relative;
+        margin-top: 116px;
+        background: #F0AC5D;
+        padding: 70px 0;
+        .card_item+.card_item {
+            margin-top: 60px;
+        }
+        .card_item {
+            font-weight: 600;
+            color: #FFFFFF;
+            &__num {
+                font-size: 36px;
+                line-height: 1;
+            }
+        }
+        .bg_text-1,
+        .bg_text-2,
+        .bg_text-3 {
+            position: absolute;
+            z-index: 2;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba($color: #fff, $alpha: .4);
+            font-weight: 600;
+        }
+        .bg_text-1 {
+            font-size: 96px;
+            top: -46px;
+            left: -4px;
+        }
+        .bg_text-2 {
+            font-size: 170px;
+            top: 81px;
+            left: 135px;
+        }
+        .bg_text-3 {
+            font-size: 150px;
+            bottom: -63px;
+            left: -18px;
+        }
+    }
+}
+
+// === / stages
