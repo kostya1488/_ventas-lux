@@ -451,6 +451,7 @@ section {
   .section_advantages .slick-slider .slick-list {
     padding-left: 85px; }
   .section_advantages .slick-slider .slick-slide {
+    cursor: pointer;
     max-width: 380px;
     min-height: 340px;
     outline: none;
