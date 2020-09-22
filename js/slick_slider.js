@@ -4,7 +4,8 @@ $(document).ready(function() {
         slidesToShow: 1,
         variableWidth: true,
         infinite: false,
-        focusOnSelect: true
+        focusOnSelect: true,
+        speed: 500,
     });
 
 });

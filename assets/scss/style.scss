@@ -611,7 +611,6 @@ section {
 // ---- about
 .section_about {
     padding-top: 150px;
-    padding-bottom: 150px;
     .section_title {
         margin-bottom: 75px;
     }
@@ -622,17 +621,64 @@ section {
 
 // === / about
 // --- feedback
+@keyframes feedback {
+    0% {
+        transform: translateY(0px);
+    }
+    35% {
+        transform: translateY(-600px);
+    }
+    80% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 .section_feedback {
+    padding-top: 170px;
     padding-bottom: 150px;
+    position: relative;
+    overflow: visible;
     .bg_logo-1 {
         position: absolute;
         left: -130px;
         top: -234px;
     }
-    .feedback_inner {
-        background-color: #235086;
-        padding-top: 88px;
-        padding-bottom: 88px;
+    .feedback_inner_wrap {
+        position: relative;
+        .feedback_response {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            top: 8px;
+            left: 8px;
+            border: 2px solid #235086;
+            background-color: #fff;
+            transition: 2.5s;
+            .response_text {
+                font-weight: 500;
+                font-size: 36px;
+                line-height: 137.4%;
+                /* or 49px */
+                color: #235086;
+            }
+        }
+        .feedback_inner {
+            position: relative;
+            z-index: 3;
+            background-color: #235086;
+            padding-top: 88px;
+            padding-bottom: 88px;
+        }
+        &.active {
+            .feedback_response {
+                animation: feedback 3s ease;
+                z-index: 4;
+            }
+        }
     }
     .text_box {
         padding-left: 88px;
