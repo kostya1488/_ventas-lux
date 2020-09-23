@@ -5,7 +5,8 @@ $(document).ready(function() {
         variableWidth: true,
         infinite: false,
         focusOnSelect: true,
-        speed: 500,
+        speed: 400,
+        easing: 'ease-in-out',
     });
 
 });

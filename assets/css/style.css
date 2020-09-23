@@ -406,13 +406,15 @@ section {
   .section_advantages .advantages_area {
     background: url(../img/advantages.jpg) no-repeat 0 0;
     background-size: cover;
+    overflow: hidden;
     padding-bottom: 65px;
     height: 812px;
     display: flex;
     align-items: flex-end; }
   .section_advantages .slider_item {
     position: relative;
-    border: 1px solid #fff; }
+    border: 1px solid #fff;
+    transition: .3s; }
     .section_advantages .slider_item .text_box {
       padding: 30px;
       position: relative;
@@ -437,7 +439,8 @@ section {
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0; }
+      opacity: 0;
+      transition: .3s; }
       .section_advantages .slider_item .bg_color__1 {
         background: #F0AC5D; }
       .section_advantages .slider_item .bg_color__2 {
@@ -448,45 +451,51 @@ section {
         background: #F0AC5D; }
       .section_advantages .slider_item .bg_color__5 {
         background: #235086; }
-  .section_advantages .slick-slider .slick-list {
-    padding-left: 85px; }
-  .section_advantages .slick-slider .slick-slide {
-    cursor: pointer;
-    max-width: 380px;
-    min-height: 340px;
-    outline: none;
-    margin: 2px 20px; }
-  .section_advantages .slick-slider .slick-current {
-    margin: 0 20px;
-    min-height: 344px; }
-    .section_advantages .slick-slider .slick-current.slider_item {
-      border: 1px solid rgba(255, 255, 255, 0); }
-      .section_advantages .slick-slider .slick-current.slider_item .bg_color {
-        transition: .3s;
-        opacity: 1; }
-  .section_advantages .slick-slider .slick-arrow {
-    position: absolute;
-    top: -75px;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 2px solid white;
-    font-size: 0;
-    background-color: rgba(255, 255, 255, 0);
-    background-repeat: no-repeat;
-    outline: none;
+    .section_advantages .slider_item:hover .bg_color {
+      opacity: 0.2; }
+  .section_advantages .slick-slider {
     transition: .3s; }
-    .section_advantages .slick-slider .slick-arrow.slick-prev {
-      left: 1030px;
-      background-image: url(../img/svg/slick-prev.svg);
-      background-position: 35%; }
-    .section_advantages .slick-slider .slick-arrow.slick-next {
-      left: 1100px;
-      background-image: url(../img/svg/slick-next.svg);
-      background-position: 65%; }
-    .section_advantages .slick-slider .slick-arrow:active {
-      border: 2px solid rgba(255, 255, 255, 0);
-      background-color: rgba(255, 255, 255, 0.6); }
+    .section_advantages .slick-slider .slick-list {
+      padding-left: 85px; }
+    .section_advantages .slick-slider .slick-slide {
+      cursor: pointer;
+      max-width: 380px;
+      min-height: 340px;
+      outline: none;
+      margin: 2px 20px; }
+    .section_advantages .slick-slider .slick-current {
+      margin: 0 20px;
+      min-height: 344px; }
+      .section_advantages .slick-slider .slick-current.slider_item {
+        border: 1px solid rgba(255, 255, 255, 0); }
+        .section_advantages .slick-slider .slick-current.slider_item .bg_color {
+          transition: .3s;
+          opacity: 1; }
+    .section_advantages .slick-slider .slick-arrow {
+      position: absolute;
+      top: -75px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid white;
+      font-size: 0;
+      background-color: rgba(255, 255, 255, 0);
+      background-repeat: no-repeat;
+      outline: none;
+      transition: .3s; }
+      .section_advantages .slick-slider .slick-arrow.slick-prev {
+        left: 1030px;
+        background-image: url(../img/svg/slick-prev.svg);
+        background-position: 35%; }
+      .section_advantages .slick-slider .slick-arrow.slick-next {
+        left: 1100px;
+        background-image: url(../img/svg/slick-next.svg);
+        background-position: 65%; }
+      .section_advantages .slick-slider .slick-arrow:hover {
+        background-color: rgba(255, 255, 255, 0.3); }
+      .section_advantages .slick-slider .slick-arrow:active {
+        border: 2px solid rgba(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0.7); }
 
 .section_about {
   padding-top: 150px; }
@@ -495,13 +504,23 @@ section {
   .section_about .text_box {
     padding-right: 70px; }
 
-@keyframes feedback {
+@keyframes feedback_response {
   0% {
     transform: translateY(0px); }
-  35% {
-    transform: translateY(-600px); }
-  80% {
-    transform: translateY(10px); }
+  25% {
+    transform: translateY(-300px); }
+  78% {
+    transform: translateY(8px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes feedback_inner {
+  0% {
+    transform: translateY(0px); }
+  25% {
+    transform: translateY(300px); }
+  78% {
+    transform: translateY(-8px); }
   100% {
     transform: translateY(0px); } }
 
@@ -521,11 +540,11 @@ section {
       z-index: 2;
       width: 100%;
       height: 100%;
-      top: 8px;
-      left: 8px;
+      top: 12px;
+      left: 12px;
       border: 2px solid #235086;
       background-color: #fff;
-      transition: 2.5s; }
+      transition: 1.2s; }
       .section_feedback .feedback_inner_wrap .feedback_response .response_text {
         font-weight: 500;
         font-size: 36px;
@@ -539,8 +558,12 @@ section {
       padding-top: 88px;
       padding-bottom: 88px; }
     .section_feedback .feedback_inner_wrap.active .feedback_response {
-      animation: feedback 3s ease;
+      animation: feedback_response 2s ease;
+      animation-delay: 200ms;
       z-index: 4; }
+    .section_feedback .feedback_inner_wrap.active .feedback_inner {
+      animation: feedback_inner 2s ease;
+      animation-delay: 200ms; }
   .section_feedback .text_box {
     padding-left: 88px;
     padding-right: 88px; }
