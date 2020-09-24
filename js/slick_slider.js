@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     $('.slider').slick({
         slidesToShow: 1,
         variableWidth: true,
@@ -8,5 +7,4 @@ $(document).ready(function() {
         speed: 400,
         easing: 'ease-in-out',
     });
-
 });

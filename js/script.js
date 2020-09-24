@@ -1,18 +1,6 @@
 $(document).ready(function() {
-    // $('.nav_link').on('click', function(e) {
-    //     e.preventDefault();
-    //     if (!$(this).hasClass('active')) {
-    //         $('.nav_link').removeClass('active');
-    //         $(this).addClass('active');
-    //     }
-    // });
-    // $(window).scroll(() => {
 
-    //     if ($('.header').offset().top > 100) {
-    //         $('.header').addClass('active');
-    //     } else $('.header').removeClass('active');
-
-    // });
+    btnUp = $('#button_up_link')
 
     // smooth scrolling
     $(".nav_link").on("click", function(e) {
@@ -23,10 +11,25 @@ $(document).ready(function() {
     });
 
     // disable page reload
-
     $('#btn').click(function(e) {
         e.preventDefault();
         $('.feedback_inner_wrap').addClass('active');
         return false;
+    });
+
+    // toggle bg color of menu items
+    $('.menu_item').click(function(e) {
+        e.preventDefault();
+        $('.menu_item').removeClass('active');
+        $(this).addClass('active');
+        $('.menu').removeClass('active');
+        $('.toggle_button').removeClass('active');
+    });
+
+    // toggle Class
+    $('.toggle_button').click(function(e) {
+        e.preventDefault();
+        $(this).toggleClass('active');
+        $('.menu').toggleClass('active');
     });
 });
