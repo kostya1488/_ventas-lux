@@ -166,7 +166,7 @@ $screen_xl: 1200px;
             padding-right: 30px;
         }
         .section_title_wrap {
-            padding-right: 45px;
+            padding-right: 40px;
         }
         .bg_logo {
             font-size: 200px;
@@ -195,7 +195,7 @@ $screen_xl: 1200px;
             height: 48px;
         }
         .section_title_wrap {
-            padding-right: 52px;
+            padding-right: 30px;
         }
     }
 }
@@ -973,10 +973,12 @@ section {
             .slick-arrow {
                 bottom: -80px;
                 &.slick-prev {
-                    left: 56vw;
+                    left: 40vw;
+                    margin-left: -26px;
                 }
                 &.slick-next {
-                    left: 75vw;
+                    left: 60vw;
+                    margin-left: -26px;
                 }
             }
         }
@@ -991,6 +993,28 @@ section {
 .section_about {
     .section_title {
         margin-bottom: 75px;
+    }
+    .about_image {
+        margin-bottom: 5px;
+        width: 40%;
+        float: right;
+    }
+    @media (min-width: $screen_lg) {
+        .about_image {
+            margin-left: 20%;
+        }
+    }
+    @media (max-width: $screen_md_max) {
+        .about_image {
+            margin-left: 10%;
+        }
+    }
+    @media (max-width: $screen_xs_max) {
+        .about_image {
+            margin-left: 0;
+            width: 100%;
+            margin-bottom: 40px;
+        }
     }
 }
 
@@ -1163,27 +1187,31 @@ section {
                 transform: translateX(0px);
             }
         }
-    }
-    .feedback_inner_wrap {
-        .feedback_response {
-            height: 56%;
-            top: 362px;
-            .response_text {
-                font-size: 22px;
+        .feedback_inner_wrap {
+            .feedback_inner {
+                padding-top: 50px;
+                padding-bottom: 50px;
             }
-        }
-        &.active {
             .feedback_response {
-                animation: feedback_response_mob 2s ease;
-                animation-delay: 200ms;
-                z-index: 4;
+                height: 57%;
+                top: 330px;
+                .response_text {
+                    font-size: 22px;
+                }
             }
-        }
-        .feedback_title {
-            margin-bottom: 40px;
-        }
-        .feedback_numbers {
-            margin-bottom: 40px;
+            &.active {
+                .feedback_response {
+                    animation: feedback_response_mob 2s ease;
+                    animation-delay: 200ms;
+                    z-index: 4;
+                }
+            }
+            .feedback_title {
+                margin-bottom: 40px;
+            }
+            .feedback_numbers {
+                margin-bottom: 40px;
+            }
         }
     }
 }
