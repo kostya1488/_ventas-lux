@@ -80,8 +80,6 @@
       height: 84px;
       width: 300%;
       background-color: #235086; }
-  .body .section_title_wrap {
-    padding-right: 75px; }
   .body .button_up {
     display: inline-flex;
     justify-content: center;
@@ -112,10 +110,26 @@
     .body .container {
       padding-left: 30px;
       padding-right: 30px; }
-    .body .section_title_wrap {
-      padding-right: 40px; }
     .body .bg_logo {
       font-size: 200px; } }
+  @media (max-width: 991px) {
+    .body.menu_active .dark_layer {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 99;
+      transition: .3s; }
+    .body.menu_active .toggle_button .button_item__top {
+      width: 58%;
+      transform: translate(0px, 2px) rotate(-30deg); }
+    .body.menu_active .toggle_button .button_item__bot {
+      width: 58%;
+      transform: translate(0px, -2px) rotate(30deg); }
+    .body.menu_active .menu {
+      transform: translateX(0); } }
   @media (max-width: 575px) {
     .body {
       font-size: 16px; }
@@ -132,9 +146,7 @@
       .body .bg_logo {
         font-size: 75px; }
       .body .section_title::before {
-        height: 48px; }
-      .body .section_title_wrap {
-        padding-right: 30px; } }
+        height: 48px; } }
 
 section {
   padding-top: 150px;
@@ -182,12 +194,12 @@ section {
         top: 81px;
         height: 100%;
         transform: translateX(-105%);
-        transition: .3s; }
+        transition: .3s;
+        z-index: 100;
+        box-shadow: inset 0px 10px 5px -9px rgba(0, 0, 0, 0.75); }
         .header .menu .nav_link {
           padding-top: 30px;
           width: 100%; }
-        .header .menu.active {
-          transform: translateX(0); }
       .header .call_btn {
         position: relative; }
         .header .call_btn img {
@@ -237,13 +249,7 @@ section {
           width: 100%;
           height: 2px;
           background-color: #fff;
-          transition: .3s; }
-        .header .toggle_button.active .button_item__top {
-          width: 58%;
-          transform: translate(0px, 2px) rotate(-30deg); }
-        .header .toggle_button.active .button_item__bot {
-          width: 58%;
-          transform: translate(0px, -2px) rotate(30deg); } }
+          transition: .3s; } }
 
 .section_intro {
   background-color: #F0AC5D;
@@ -279,7 +285,7 @@ section {
     .section_intro .text_box {
       z-index: 6; }
       .section_intro .text_box .text_title {
-        font-size: 32px; }
+        font-size: 28px; }
       .section_intro .text_box .text_subtitle {
         font-size: 16px; } }
   @media (min-width: 576px) and (max-width: 991px) {
@@ -591,7 +597,7 @@ section {
       top: 72px; } }
   @media (max-width: 991px) {
     .section_stages .stages_image-2 {
-      top: 210px; }
+      top: 186px; }
     .section_stages .color_card .bg_text-2 {
       top: 67px; }
     .section_stages .bg_logo-2 {
@@ -898,12 +904,15 @@ section {
         padding-left: 30px;
         padding-right: 30px; }
       .section_feedback .feedback_numbers {
+        display: flex;
         flex-direction: column; } }
   @media (max-width: 575px) {
     @keyframes feedback_response_mob {
       0% {
         transform: translateX(0px); }
-      10% {
+      5% {
+        transform: translateX(5px); }
+      15% {
         transform: translateX(-400px); }
       68% {
         transform: translateX(8px); }

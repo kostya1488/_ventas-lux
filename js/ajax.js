@@ -15,12 +15,11 @@ function sendAjaxForm(ajax_form, url) {
         data: $("#" + ajax_form).serialize(),
         success: function(response) {
             result = $.parseJSON(response);
-            $('.form_wrap').toggleClass('form_send');
+            $('.feedback_inner_wrap').addClass('active');
         },
         error: function(response) {
-            $('.form_wrap').toggleClass('form_send');
-            $('.form_response').html('Помилка! <br> Дані не відправлені.').css('color', '#f44336')
-
+            $('.response_text').css('color', 'red').html('Помилка! <br> Запит не відправлено. <br> Перезавантажте сторінку та <br> спробуйте ще раз.');
+            $('.feedback_inner_wrap').addClass('active');
         }
     });
 

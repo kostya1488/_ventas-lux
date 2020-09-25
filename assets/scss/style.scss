@@ -125,9 +125,6 @@ $screen_xl: 1200px;
             background-color: #235086;
         }
     }
-    .section_title_wrap {
-        padding-right: 75px;
-    }
     .button_up {
         display: inline-flex;
         justify-content: center;
@@ -165,11 +162,35 @@ $screen_xl: 1200px;
             padding-left: 30px;
             padding-right: 30px;
         }
-        .section_title_wrap {
-            padding-right: 40px;
-        }
         .bg_logo {
             font-size: 200px;
+        }
+    }
+    @media (max-width: $screen_md_max) {
+        &.menu_active {
+            .dark_layer {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba($color: #000, $alpha: 0.6);
+                z-index: 99;
+                transition: .3s;
+            }
+            .toggle_button .button_item {
+                &__top {
+                    width: 58%;
+                    transform: translate(0px, 2px) rotate(-30deg);
+                }
+                &__bot {
+                    width: 58%;
+                    transform: translate(0px, -2px) rotate(30deg);
+                }
+            }
+            .menu {
+                transform: translateX(0);
+            }
         }
     }
     @media (max-width: $screen_xs_max) {
@@ -193,9 +214,6 @@ $screen_xl: 1200px;
         }
         .section_title::before {
             height: 48px;
-        }
-        .section_title_wrap {
-            padding-right: 30px;
         }
     }
 }
@@ -256,12 +274,11 @@ section {
             height: 100%;
             transform: translateX(-105%);
             transition: .3s;
+            z-index: 100;
+            box-shadow: inset 0px 10px 5px -9px rgba(0, 0, 0, 0.75);
             .nav_link {
                 padding-top: 30px;
                 width: 100%;
-            }
-            &.active {
-                transform: translateX(0);
             }
         }
         .call_btn {
@@ -326,18 +343,6 @@ section {
                 background-color: #fff;
                 transition: .3s;
             }
-            &.active {
-                .button_item {
-                    &__top {
-                        width: 58%;
-                        transform: translate(0px, 2px) rotate(-30deg);
-                    }
-                    &__bot {
-                        width: 58%;
-                        transform: translate(0px, -2px) rotate(30deg);
-                    }
-                }
-            }
         }
     }
 }
@@ -383,7 +388,7 @@ section {
         .text_box {
             z-index: 6;
             .text_title {
-                font-size: 32px;
+                font-size: 28px;
             }
             .text_subtitle {
                 font-size: 16px;
@@ -747,7 +752,7 @@ section {
     @media (max-width: $screen_md_max) {
         .stages_image-2 {
             // width: 64%;
-            top: 210px;
+            top: 186px;
         }
         .color_card .bg_text-2 {
             top: 67px;
@@ -1169,6 +1174,7 @@ section {
             padding-right: 30px;
         }
         .feedback_numbers {
+            display: flex;
             flex-direction: column;
         }
     }
@@ -1177,7 +1183,10 @@ section {
             0% {
                 transform: translateX(0px);
             }
-            10% {
+            5% {
+                transform: translateX(5px);
+            }
+            15% {
                 transform: translateX(-400px);
             }
             68% {

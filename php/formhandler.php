@@ -1,15 +1,14 @@
 <?php
-$to = "info@enerlize.net.ua";
+$to = "mail@ventas-lux.com";
 $subject = "Заявка с сайта";
-$headers = "From: message@enerlize.net.ua";
+$headers = "From: message@ventas-lux.com";
 
 if (
 
 isset($_POST["name"]) && 
 isset($_POST["phone"]) && 
-isset($_POST["message"]) && 
-isset($_POST["name_company"]) && 
-isset($_POST["email"]) 
+isset($_POST["email"]) && 
+isset($_POST["company"])
 
 ) { 
 
@@ -17,9 +16,8 @@ isset($_POST["email"])
     $result = array(
     	'Имя' => $_POST["name"],
         'Телефон' => $_POST["phone"],
-    	'Сообщение' => $_POST["message"],        
-    	'Компания' => $_POST["name_company"],        
-    	'Email' => $_POST["email"]        
+        'Email' => $_POST["email"],
+    	'Компания' => $_POST["company"]        
     ); 
 
     // Переводим массив в JSON
