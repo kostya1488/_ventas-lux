@@ -249,7 +249,8 @@ section {
     }
     .menu_item {
         transition: .3s;
-        &.active {
+        &.active,
+        &:hover {
             background-color: #235086;
         }
     }

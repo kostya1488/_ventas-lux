@@ -172,7 +172,7 @@ section {
     height: 100%; }
   .header .menu_item {
     transition: .3s; }
-    .header .menu_item.active {
+    .header .menu_item.active, .header .menu_item:hover {
       background-color: #235086; }
   .header .nav_link {
     position: relative;
